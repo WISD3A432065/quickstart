@@ -25,8 +25,15 @@ Route::get('/', function () {
             ->withErrors($validator);
     }
 
+    $task = new Task;
+    $task->name = $request->name;
+    $task->save();
+
+    return redirect('/');
+});
+
     // 建立該任務...
-    });
+
 
     /**
      * 刪除任務
